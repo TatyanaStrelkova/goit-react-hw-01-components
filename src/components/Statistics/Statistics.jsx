@@ -6,9 +6,9 @@ const Statistics = ({ title, stats }) => {
 { title && <StatisticTitle>{title}</StatisticTitle> }
 
         <StatisticList>
-            {stats.map(stat =>
-            (<StatisticItem key={stat.id}> <StatisticLabe>{stat.label}</StatisticLabe>
-     <StatisticPerc>{stat.percentage}%</StatisticPerc>
+            {stats.map(({id, label, percentage }) =>
+            (<StatisticItem key={id}> <StatisticLabe>{label}</StatisticLabe>
+     <StatisticPerc>{percentage}%</StatisticPerc>
     </StatisticItem>))}
   </StatisticList>
 </Statistic>

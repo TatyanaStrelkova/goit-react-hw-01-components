@@ -6,7 +6,7 @@ export const TransactionsTable = styled.table`
     border-collapse: collapse;
     text-align: center;
     width: 800px;
-    margin-bottom: 40px;;`
+    margin-bottom: 40px;`
 
 export const TransactionsName = styled.th`
 background: #AFCDE7;
@@ -16,7 +16,7 @@ background: #AFCDE7;
     border-width: 0 1px 1px 0;
     border-color: white;
 
-    :first-child {
+    :first-of-type {
     text-align: left;
 }
     `
@@ -27,7 +27,7 @@ border-style: solid;
     border-color: white;
      background: #D8E6F3;
 
-:first-child {
+:first-of-type {
     background: #AFCDE7;
     color: white;
     padding: 10px 20px;

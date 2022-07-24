@@ -1,18 +1,13 @@
 import PropTypes from 'prop-types'; 
-import { FaUserAltSlash, FaUserCheck } from 'react-icons/fa';
-import { FriendsList, FriendsItem, Avatar, FriendName, FriendStatus } from './FriendList.styled'
+import { FriendListItem } from 'components/FriendListItem/FriendListItem'
+import { FriendsList } from './FriendList.styled'
 
 const FriendList = ({ friends }) => {
     return <FriendsList>
-        {friends.map(friend =>
-            <FriendsItem key={friend.id}> 
-                <FriendStatus status={friend.isOnline}>{ friend.isOnline ? <FaUserAltSlash/> : <FaUserCheck/> } </FriendStatus>
-  <Avatar src={friend.avatar} alt="User avatar" width="48" />
-            <FriendName>{friend.name}</FriendName>
-</FriendsItem>)}
-</FriendsList>
+        {friends.map(({ id, isOnline, avatar, name }) => <FriendListItem key={id} isOnline={isOnline} avatar={avatar} name={name} />)}
+    </FriendsList>
 }
- 
+
 FriendList.propTypes = {
     friends: PropTypes.arrayOf(PropTypes.shape({
         id: PropTypes.number.isRequired,

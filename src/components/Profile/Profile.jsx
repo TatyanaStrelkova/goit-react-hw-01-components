@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'; 
 import {ProfileContainer, ProfileAvatar, ProfileName, ProfileTag, ProfileLocation,ProfileStats, ProfileStat, ProfileLabel, ProfileQuantity } from './Profile.styled'
 
-const Profile = ({ userName, tag, location, avatar, stats }) => {
+const Profile = ({ userName, tag, location, avatar, stats: {followers, views, likes } }) => {
    return <ProfileContainer>
     <ProfileAvatar
       src={avatar}
@@ -15,15 +15,15 @@ const Profile = ({ userName, tag, location, avatar, stats }) => {
   <ProfileStats>
     <ProfileStat>
       <ProfileLabel>Followers</ProfileLabel>
-      <ProfileQuantity>{stats.followers}</ProfileQuantity>
+      <ProfileQuantity>{followers}</ProfileQuantity>
     </ProfileStat>
     <ProfileStat>
       <ProfileLabel>Views</ProfileLabel>
-      <ProfileQuantity>{stats.views}</ProfileQuantity>
+      <ProfileQuantity>{views}</ProfileQuantity>
     </ProfileStat>
     <ProfileStat>
       <ProfileLabel>Likes</ProfileLabel>
-      <ProfileQuantity>{stats.likes}</ProfileQuantity>
+      <ProfileQuantity>{likes}</ProfileQuantity>
     </ProfileStat>
   </ProfileStats>
    </ProfileContainer>
@@ -33,8 +33,14 @@ Profile.propTypes = {
     userName: PropTypes.string.isRequired,
     tag: PropTypes.string.isRequired,
     location: PropTypes.string.isRequired,
-    avatar: PropTypes.string.isRequired,
-    stats: PropTypes.object.isRequired,
+  avatar: PropTypes.string.isRequired,
+   stats: PropTypes.shape({
+        followers: PropTypes.number.isRequired,
+        views: PropTypes.number.isRequired,
+        likes: PropTypes.number.isRequired,
+    }),
 }
+
+
  
 export default Profile;
